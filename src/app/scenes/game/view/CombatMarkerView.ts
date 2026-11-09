@@ -7,7 +7,7 @@ export default class CombatMarkerView {
     private readonly hitArea: Phaser.GameObjects.Zone;
 
     constructor(
-        scene: Phaser.Scene,
+        private readonly scene: Phaser.Scene,
         layer: Phaser.GameObjects.Layer,
         x: number,
         y: number,
@@ -19,14 +19,23 @@ export default class CombatMarkerView {
 
         const diameter = config.radius * 2;
         this.hitArea = scene.add.zone(x, y, diameter, diameter);
-        this.hitArea.setInteractive(
-            new Phaser.Geom.Circle(config.radius, config.radius, config.radius),
-            Phaser.Geom.Circle.Contains,
-        );
+        this.hitArea.setInteractive({
+            hitArea: new Phaser.Geom.Circle(config.radius, config.radius, config.radius),
+            hitAreaCallback: Phaser.Geom.Circle.Contains,
+            useHandCursor: true,
+        });
         this.hitArea.on('pointerdown', onTap);
         layer.add(this.hitArea);
 
         this.setRemaining(1);
+        this.graphics.setScale(config.appearFromScale);
+        this.hitArea.setScale(config.appearFromScale);
+        scene.tweens.add({
+            targets: [this.graphics, this.hitArea],
+            scale: 1,
+            duration: config.appearDurationMs,
+            ease: config.appearEase,
+        });
     }
 
     setRemaining(fraction: number): void {
@@ -51,6 +60,8 @@ export default class CombatMarkerView {
     }
 
     destroy(): void {
+        this.scene.tweens.killTweensOf(this.graphics);
+        this.scene.tweens.killTweensOf(this.hitArea);
         this.hitArea.destroy();
         this.graphics.destroy();
     }
