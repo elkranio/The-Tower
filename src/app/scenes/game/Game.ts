@@ -2,10 +2,12 @@ import BaseScene from '../BaseScene';
 import LayerManager from '../../../system/LayerManager';
 import GameController from './GameController';
 
-const layers = ['bg', 'mob', 'ui'] as const;
+const layers = ['bg', 'mob', 'markers', 'ui'] as const;
 type LayerKeys = (typeof layers)[number];
 
 export default class Game extends BaseScene<LayerKeys> {
+    private controller?: GameController;
+
     constructor() {
         super('Game');
     }
@@ -15,6 +17,11 @@ export default class Game extends BaseScene<LayerKeys> {
     }
 
     protected start(): void {
-        new GameController(this).start();
+        this.controller = new GameController(this);
+        this.controller.start();
+    }
+
+    update(_time: number, delta: number): void {
+        this.controller?.update(delta);
     }
 }
