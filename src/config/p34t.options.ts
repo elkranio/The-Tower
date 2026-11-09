@@ -4,7 +4,7 @@ const P34TOptions = {
 
     // should the game take all available space?
     responsive: {
-        mobile: true,
+        mobile: false,
         desktop: false,
     },
 

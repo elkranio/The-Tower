@@ -7,8 +7,8 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     type: Phaser.AUTO,
 
     // base game size
-    width: 1280,
-    height: 720,
+    width: 720,
+    height: 1280,
 
     // DOM container for possible UI integration
     parent: 'game-container',

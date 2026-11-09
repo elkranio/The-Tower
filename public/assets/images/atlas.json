@@ -1,14 +1,56 @@
 {
   "textures": [
     {
-      "image": "atlas-0.png?v=1744186193959",
+      "image": "atlas-0.png?v=1794212255455",
       "format": "RGBA8888",
       "size": {
-        "w": 66,
-        "h": 100
+        "w": 722,
+        "h": 1683
       },
       "scale": 1,
       "frames": [
+        {
+          "filename": "bg",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": {
+            "w": 720,
+            "h": 1280
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 720,
+            "h": 1280
+          },
+          "frame": {
+            "x": 1,
+            "y": 1,
+            "w": 720,
+            "h": 1280
+          }
+        },
+        {
+          "filename": "mob",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": {
+            "w": 300,
+            "h": 399
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 300,
+            "h": 399
+          },
+          "frame": {
+            "x": 1,
+            "y": 1283,
+            "w": 300,
+            "h": 399
+          }
+        },
         {
           "filename": "circle",
           "rotated": false,
@@ -24,8 +66,8 @@
             "h": 64
           },
           "frame": {
-            "x": 1,
-            "y": 1,
+            "x": 303,
+            "y": 1283,
             "w": 64,
             "h": 64
           }
@@ -45,8 +87,8 @@
             "h": 32
           },
           "frame": {
-            "x": 1,
-            "y": 67,
+            "x": 303,
+            "y": 1349,
             "w": 32,
             "h": 32
           }
@@ -57,6 +99,6 @@
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "3.0",
-    "smartupdate": "$TexturePacker:SmartUpdate:aef6b9e6c5f1d6e60eae4832f5dd63a7:6451e5157e4982f1a82377f99c874d60:cf935fe037ea9b5d3744d532996e235e$"
+    "smartupdate": "$TexturePacker:SmartUpdate:3991b0a3cd5e5b927d2692781da203bc:7200a0afd1c9149d4ba85b1efba91bb5:cf935fe037ea9b5d3744d532996e235e$"
   }
 }
