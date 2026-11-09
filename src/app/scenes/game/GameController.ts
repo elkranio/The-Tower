@@ -8,6 +8,7 @@ import HealthBarView from './view/HealthBarView';
 export default class GameController {
     private mobHealth!: HealthBarView;
     private playerHealth!: HealthBarView;
+    private mob!: Phaser.GameObjects.Image;
     private markers!: MarkerController;
     private mobHp = combatConfig.mob.hp;
     private playerHp = combatConfig.player.hp;
@@ -19,12 +20,12 @@ export default class GameController {
         const { scene } = this;
 
         createBackgroundView(scene, scene.layers.get('bg'));
-        createMobView(scene, scene.layers.get('mob'), combatConfig.mob);
+        this.mob = createMobView(scene, scene.layers.get('mob'), combatConfig.mob);
 
         const ui = scene.layers.get('ui');
         this.mobHealth = new HealthBarView(scene, ui, combatConfig.hud.mob, combatConfig.mob);
         this.playerHealth = new HealthBarView(scene, ui, combatConfig.hud.player, combatConfig.player);
-        this.markers = new MarkerController(scene, () => this.hitMarker(), () => this.missMarker());
+        this.markers = new MarkerController(scene, () => this.hitMarker(), () => this.missMarker(), () => this.trapMarker());
     }
 
     update(delta: number): void {
@@ -32,14 +33,41 @@ export default class GameController {
     }
 
     private hitMarker(): void {
+        if (this.finished) return;
+
         this.mobHp = Math.max(0, this.mobHp - combatConfig.marker.damageToMob);
         this.mobHealth.setHp(this.mobHp);
+        this.hitMobEffect();
 
         if (this.mobHp === 0) this.endFight('Victory!');
     }
 
+    private hitMobEffect(): void {
+        const { scene, mob } = this;
+        scene.tweens.killTweensOf(mob);
+        mob.setX(combatConfig.mob.x - 10);
+        mob.setTintFill(0xffffff);
+        scene.tweens.add({
+            targets: mob,
+            x: combatConfig.mob.x,
+            duration: 120,
+            ease: 'Cubic.Out',
+            onComplete: () => mob.clearTint(),
+        });
+    }
+
     private missMarker(): void {
-        this.playerHp = Math.max(0, this.playerHp - combatConfig.marker.damageToPlayerOnMiss);
+        this.damagePlayer(combatConfig.marker.damageToPlayerOnMiss);
+    }
+
+    private trapMarker(): void {
+        this.damagePlayer(combatConfig.marker.damageToPlayerOnTrap);
+    }
+
+    private damagePlayer(damage: number): void {
+        if (this.finished) return;
+
+        this.playerHp = Math.max(0, this.playerHp - damage);
         this.playerHealth.setHp(this.playerHp);
 
         if (this.playerHp === 0) this.endFight('Defeat!');

@@ -1,4 +1,5 @@
 import type combatConfig from '../combatConfig';
+import type { MarkerKind } from '../combatConfig';
 
 type MarkerConfig = typeof combatConfig.marker;
 
@@ -12,6 +13,7 @@ export default class CombatMarkerView {
         x: number,
         y: number,
         private readonly config: MarkerConfig,
+        private readonly kind: MarkerKind,
         onTap: () => void,
     ) {
         this.graphics = scene.add.graphics().setPosition(x, y);
@@ -40,7 +42,9 @@ export default class CombatMarkerView {
 
     setRemaining(fraction: number): void {
         const remaining = Phaser.Math.Clamp(fraction, 0, 1);
-        const { radius, fillColor, borderColor, borderWidth, trackColor, ringColor, ringWidth, ringInset } = this.config;
+        const { radius, borderWidth, ringWidth, ringInset } = this.config;
+        const palette = this.kind === 'trap' ? this.config.trap : this.config;
+        const { fillColor, borderColor, trackColor, ringColor } = palette;
         const ringRadius = radius - ringInset;
 
         this.graphics.clear();

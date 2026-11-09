@@ -1,3 +1,5 @@
+export type MarkerKind = 'tap' | 'trap';
+
 const combatConfig = {
     mob: {
         name: 'Goblin',
@@ -13,33 +15,36 @@ const combatConfig = {
         maxHp: 10,
     },
     marker: {
-        type: 'tap' as const,
         radius: 24,
         lifetimeMs: 900,
-        spawnIntervalMs: 340,
+        spawnIntervalMs: 250,
         appearFromScale: 0.75,
         appearDurationMs: 100,
         appearEase: 'Cubic.Out',
+        trapsPerPattern: { min: 1, max: 2 },
         patterns: [
             [
-                { dx: 62, dy: -44 },
-                { dx: 72, dy: -24 },
-                { dx: 76, dy: 0 },
-                { dx: 70, dy: 26 },
-                { dx: 62, dy: 44 },
-                { dx: 56, dy: 30 },
+                { dx: 52, dy: -20 },
+                { dx: 54, dy: -16 },
+                { dx: 56, dy: -8 },
+                { dx: 56, dy: 8 },
+                { dx: 54, dy: 16 },
+                { dx: 52, dy: 20 },
+                { dx: 50, dy: 14 },
             ],
             [
-                { dx: 70, dy: -44 },
-                { dx: 70, dy: 52 },
-                { dx: 70, dy: -52 },
-                { dx: 70, dy: 52 },
-                { dx: 70, dy: -52 },
-                { dx: 70, dy: 44 },
+                { dx: 52, dy: -24 },
+                { dx: 52, dy: 28 },
+                { dx: 52, dy: -28 },
+                { dx: 52, dy: 28 },
+                { dx: 52, dy: -28 },
+                { dx: 52, dy: 28 },
+                { dx: 52, dy: -24 },
             ],
         ],
         damageToMob: 1,
         damageToPlayerOnMiss: 1,
+        damageToPlayerOnTrap: 1,
         area: {
             minX: 120,
             maxX: 600,
@@ -53,6 +58,12 @@ const combatConfig = {
         ringColor: 0x57ff42,
         ringWidth: 7,
         ringInset: 9,
+        trap: {
+            fillColor: 0xa52129,
+            borderColor: 0x261218,
+            trackColor: 0x4e1820,
+            ringColor: 0xff695c,
+        },
     },
     hud: {
         mob: {

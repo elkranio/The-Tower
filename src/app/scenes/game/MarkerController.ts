@@ -1,10 +1,10 @@
 import type Game from './Game';
-import combatConfig from './combatConfig';
+import combatConfig, { type MarkerKind } from './combatConfig';
 import CombatMarkerView from './view/CombatMarkerView';
 
 type Point = { x: number; y: number };
 type Step = { dx: number; dy: number };
-type ActiveMarker = { view: CombatMarkerView; remainingMs: number };
+type ActiveMarker = { view: CombatMarkerView; kind: MarkerKind; remainingMs: number };
 
 export default class MarkerController {
     private readonly active: ActiveMarker[] = [];
@@ -12,6 +12,7 @@ export default class MarkerController {
     private lastPosition: Point | null = null;
     private pattern: readonly Step[] = [];
     private patternIndex = 0;
+    private trapIndexes: number[] = [];
     private directionX = 1;
     private directionY = 1;
     private running = true;
@@ -20,6 +21,7 @@ export default class MarkerController {
         private readonly scene: Game,
         private readonly onHit: () => void,
         private readonly onMiss: () => void,
+        private readonly onTrap: () => void,
     ) {}
 
     update(delta: number): void {
@@ -30,7 +32,7 @@ export default class MarkerController {
 
             if (marker.remainingMs <= 0) {
                 this.remove(marker);
-                this.onMiss();
+                if (marker.kind === 'tap') this.onMiss();
                 if (!this.running) return;
             } else {
                 marker.view.setRemaining(marker.remainingMs / combatConfig.marker.lifetimeMs);
@@ -51,7 +53,7 @@ export default class MarkerController {
     }
 
     private spawn(): void {
-        const position = this.nextPosition();
+        const { position, kind } = this.nextMarker();
         let marker: ActiveMarker;
         const view = new CombatMarkerView(
             this.scene,
@@ -59,10 +61,11 @@ export default class MarkerController {
             position.x,
             position.y,
             combatConfig.marker,
+            kind,
             () => this.hit(marker),
         );
 
-        marker = { view, remainingMs: combatConfig.marker.lifetimeMs };
+        marker = { view, kind, remainingMs: combatConfig.marker.lifetimeMs };
         this.active.push(marker);
     }
 
@@ -70,7 +73,8 @@ export default class MarkerController {
         if (!this.running || !this.active.includes(marker)) return;
 
         this.remove(marker);
-        this.onHit();
+        if (marker.kind === 'trap') this.onTrap();
+        else this.onHit();
     }
 
     private remove(marker: ActiveMarker): void {
@@ -81,22 +85,26 @@ export default class MarkerController {
         marker.view.destroy();
     }
 
-    private nextPosition(): Point {
+    private nextMarker(): { position: Point; kind: MarkerKind } {
         const { area, patterns } = combatConfig.marker;
+        if (this.patternIndex >= this.pattern.length) {
+            this.pattern = patterns[Phaser.Math.Between(0, patterns.length - 1)];
+            this.patternIndex = 0;
+            this.trapIndexes = this.pickTrapIndexes(this.pattern.length);
+        }
+
+        const index = this.patternIndex++;
+        const kind: MarkerKind = this.trapIndexes.includes(index) ? 'trap' : 'tap';
+
         if (!this.lastPosition) {
             this.lastPosition = {
                 x: Phaser.Math.Between(area.minX, area.maxX),
                 y: Phaser.Math.Between(area.minY, area.maxY),
             };
-            return this.lastPosition;
+            return { position: this.lastPosition, kind };
         }
 
-        if (this.patternIndex >= this.pattern.length) {
-            this.pattern = patterns[Phaser.Math.Between(0, patterns.length - 1)];
-            this.patternIndex = 0;
-        }
-
-        const step = this.pattern[this.patternIndex++];
+        const step = this.pattern[index];
         let x = this.lastPosition.x + step.dx * this.directionX;
         let y = this.lastPosition.y + step.dy * this.directionY;
 
@@ -113,6 +121,23 @@ export default class MarkerController {
             x: Phaser.Math.Clamp(x, area.minX, area.maxX),
             y: Phaser.Math.Clamp(y, area.minY, area.maxY),
         };
-        return this.lastPosition;
+        return { position: this.lastPosition, kind };
+    }
+
+    private pickTrapIndexes(length: number): number[] {
+        const { min, max } = combatConfig.marker.trapsPerPattern;
+        const count = Phaser.Math.Between(min, max);
+        const chosen: number[] = [];
+
+        while (chosen.length < count) {
+            const available: number[] = [];
+            for (let i = 1; i < length - 1; i++) {
+                if (chosen.every(index => Math.abs(i - index) > 1)) available.push(i);
+            }
+            if (available.length === 0) break;
+            chosen.push(available[Phaser.Math.Between(0, available.length - 1)]);
+        }
+
+        return chosen;
     }
 }
