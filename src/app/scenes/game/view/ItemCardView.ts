@@ -1,5 +1,6 @@
 import type { BagItem, Rarity } from '../data/itemCatalog';
 import config from '../lootTinderConfig';
+import { getItemValues } from '../data/itemValuation';
 import { panel, text } from './uiDraw';
 
 type Direction = 'reject' | 'take';
@@ -23,7 +24,9 @@ export default class ItemCardView {
 
         g.fillStyle(0xe9b879, 0.5).fillRoundedRect(-220, -282, 440, 289, 22);
         g.fillStyle(0xffe9b4, 0.65).fillRoundedRect(-212, -276, 424, 274, 19);
-        g.lineStyle(3, 0xbf8749, 0.95).lineBetween(-230, 256, 230, 256);
+        g.fillStyle(0xbb814b, 0.18).fillRoundedRect(-226, 201, 452, 124, 12);
+        g.lineStyle(2, 0xa96d3b, 0.55).strokeRoundedRect(-226, 201, 452, 124, 12);
+        g.lineStyle(2, 0xad8255, 0.55).lineBetween(-205, 245, 205, 245);
 
         const icon = scene.add.image(0, -145, 'atlas', item.frame).setScale(1.95);
         const titleSize = item.name.length > 16 ? 34 : item.name.length > 12 ? 39 : 46;
@@ -31,22 +34,30 @@ export default class ItemCardView {
 
         const rarity = item.rarity;
         const badge = scene.add.graphics();
-        badge.fillStyle(rarity ? rarityColors[rarity] : 0xc3935c).fillRoundedRect(-151, 115, 302, 61, 13);
-        badge.lineStyle(3, 0x422932, 0.8).strokeRoundedRect(-151, 115, 302, 61, 13);
-        const label = text(scene, 0, 145, rarity ?? item.category.toUpperCase(), 29, '#fff2d4');
+        badge.fillStyle(rarity ? rarityColors[rarity] : 0xc3935c).fillRoundedRect(-151, 104, 302, 54, 13);
+        badge.lineStyle(3, 0x422932, 0.8).strokeRoundedRect(-151, 104, 302, 54, 13);
+        const label = text(scene, 0, 131, rarity ?? item.category.toUpperCase(), 29, '#fff2d4');
         label.setStroke('#3a272a', 3);
 
         let traitText = '';
         if (item.unidentified) traitText = 'UNIDENTIFIED';
         else if (item.trait) traitText = item.trait.toUpperCase();
-        const trait = text(scene, 0, 215, traitText, 27, item.unidentified ? '#8d4099' : '#a14424');
+        const trait = text(scene, 0, 175, traitText, 27, item.unidentified ? '#8d4099' : '#a14424');
 
-        const base = text(scene, -188, 295, 'BASE VALUE', 26, '#86603c');
-        base.setOrigin(0, 0.5);
-        const value = text(scene, 186, 295, `${item.baseValue}  GOLD`, 34);
-        value.setOrigin(1, 0.5);
+        const values = getItemValues(item.baseValue);
+        const receipt: Phaser.GameObjects.Text[] = [];
+        const rows = [
+            { y: 225, label: 'BASE VALUE', amount: `${item.baseValue} G`, color: '#86603c' },
+            { y: 267, label: 'REJECT', amount: `+${values.reject} G`, color: '#a13c2a' },
+            { y: 301, label: 'TAKE', amount: `+${values.take} G`, color: '#34752b' },
+        ];
+        for (const row of rows) {
+            const label = text(scene, -197, row.y, row.label, 24, row.color).setOrigin(0, 0.5);
+            const amount = text(scene, 197, row.y, row.amount, 28, row.color).setOrigin(1, 0.5);
+            receipt.push(label, amount);
+        }
 
-        this.container = scene.add.container(x, y, [g, icon, name, badge, label, trait, base, value]);
+        this.container = scene.add.container(x, y, [g, icon, name, badge, label, trait, ...receipt]);
         this.container.setSize(width, height).setInteractive({ useHandCursor: true });
         scene.input.setDraggable(this.container);
         layer.add(this.container);

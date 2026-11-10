@@ -1,6 +1,7 @@
 import type Game from './Game';
 import config from './lootTinderConfig';
 import { generateBag, type BagItem } from './data/itemCatalog';
+import { getItemValues } from './data/itemValuation';
 import createBackgroundView from './view/BackgroundView';
 import LootHudView from './view/LootHudView';
 import ActionButtonsView from './view/ActionButtonsView';
@@ -14,7 +15,7 @@ export default class LootTinderController {
     private card: ItemCardView | null = null;
     private bag: BagItem[] = [];
     private itemIndex = 0;
-    private estimated = 0;
+    private profit = -config.bag.purchasePrice;
     private busy = false;
 
     constructor(private readonly scene: Game) {}
@@ -30,7 +31,7 @@ export default class LootTinderController {
     private newBag(): void {
         this.bag = generateBag(config.bag.minItems, config.bag.maxItems);
         this.itemIndex = 0;
-        this.estimated = 0;
+        this.profit = -config.bag.purchasePrice;
         this.busy = false;
         this.showItem();
     }
@@ -50,9 +51,7 @@ export default class LootTinderController {
         this.busy = true;
 
         const item = this.bag[this.itemIndex];
-        this.estimated += decision === 'reject'
-            ? Math.floor(item.baseValue * config.bag.rejectMultiplier)
-            : item.baseValue;
+        this.profit += getItemValues(item.baseValue)[decision];
         this.updateReport();
 
         this.card.exit(decision, () => {
@@ -81,8 +80,7 @@ export default class LootTinderController {
 
     private updateReport(): void {
         this.hud.setReport({
-            spent: config.bag.purchasePrice,
-            estimate: this.estimated,
+            profit: this.profit,
             current: Math.min(this.itemIndex + 1, this.bag.length),
             total: this.bag.length,
         });

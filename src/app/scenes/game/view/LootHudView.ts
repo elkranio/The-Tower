@@ -1,20 +1,15 @@
 import { panel, text } from './uiDraw';
 
-type Report = { spent: number; estimate: number; current: number; total: number };
+type Report = { profit: number; current: number; total: number };
 
 export default class LootHudView {
     private readonly progress: Phaser.GameObjects.Text;
-    private readonly spent: Phaser.GameObjects.Text;
-    private readonly estimated: Phaser.GameObjects.Text;
-    private readonly net: Phaser.GameObjects.Text;
+    private readonly profit: Phaser.GameObjects.Text;
 
     constructor(scene: Phaser.Scene, layer: Phaser.GameObjects.Layer, dungeonName: string) {
         const g = scene.add.graphics();
         panel(g, 20, 24, 680, 98);
-        panel(g, 20, 135, 680, 155);
-        g.lineStyle(3, 0xb78956, 0.9);
-        g.lineBetween(247, 153, 247, 274);
-        g.lineBetween(473, 153, 473, 274);
+        panel(g, 20, 135, 680, 125);
 
         // Simple bag pictogram, drawn in Phaser like the rest of the frame.
         g.fillStyle(0x9b5728).fillEllipse(77, 87, 66, 51);
@@ -27,23 +22,14 @@ export default class LootHudView {
         this.progress = text(scene, 606, 74, '', 42);
         layer.add(this.progress);
 
-        for (const [x, title] of [[132, 'SPENT'], [360, 'EST. VALUE'], [585, 'NET']] as const) {
-            layer.add(text(scene, x, 177, title, 21, '#67472f'));
-        }
-        this.spent = text(scene, 132, 233, '', 38, '#a93220');
-        this.estimated = text(scene, 360, 233, '', 38, '#276d28');
-        this.net = text(scene, 585, 233, '', 38);
-        layer.add(this.spent);
-        layer.add(this.estimated);
-        layer.add(this.net);
+        layer.add(text(scene, 360, 170, 'EST. PROFIT', 25, '#67472f'));
+        this.profit = text(scene, 360, 222, '', 59);
+        layer.add(this.profit);
     }
 
-    setReport({ spent, estimate, current, total }: Report): void {
+    setReport({ profit, current, total }: Report): void {
         this.progress.setText(`${current} / ${total}`);
-        this.spent.setText(`-${spent}`);
-        this.estimated.setText(`+${estimate}`);
-        const net = estimate - spent;
-        this.net.setText(`${net >= 0 ? '+' : ''}${net}`);
-        this.net.setColor(net >= 0 ? '#276d28' : '#a93220');
+        this.profit.setText(`${profit > 0 ? '+' : ''}${profit} G`);
+        this.profit.setColor(profit > 0 ? '#276d28' : profit < 0 ? '#a93220' : '#67472f');
     }
 }

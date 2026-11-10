@@ -7,6 +7,7 @@ const lootTinderConfig = {
         maxItems: 6,
         purchasePrice: 120,
         rejectMultiplier: 0.4,
+        takeMultiplier: 1.2,
     },
     card: {
         x: 360,
