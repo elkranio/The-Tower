@@ -1,14 +1,728 @@
 {
   "textures": [
     {
-      "image": "atlas-0.png?v=1744186193959",
+      "image": "atlas-0.png?v=1794352366794",
       "format": "RGBA8888",
       "size": {
-        "w": 66,
-        "h": 100
+        "w": 995,
+        "h": 461
       },
       "scale": 1,
       "frames": [
+        {
+          "filename": "item_icons/icon_35",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 7,
+            "w": 114,
+            "h": 114
+          },
+          "frame": {
+            "x": 1,
+            "y": 1,
+            "w": 114,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_18",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 7,
+            "w": 114,
+            "h": 113
+          },
+          "frame": {
+            "x": 1,
+            "y": 117,
+            "w": 114,
+            "h": 113
+          }
+        },
+        {
+          "filename": "item_icons/icon_25",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 7,
+            "w": 113,
+            "h": 114
+          },
+          "frame": {
+            "x": 117,
+            "y": 1,
+            "w": 113,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_30",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 8,
+            "w": 114,
+            "h": 112
+          },
+          "frame": {
+            "x": 1,
+            "y": 232,
+            "w": 114,
+            "h": 112
+          }
+        },
+        {
+          "filename": "item_icons/icon_15",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 8,
+            "y": 7,
+            "w": 111,
+            "h": 114
+          },
+          "frame": {
+            "x": 1,
+            "y": 346,
+            "w": 111,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_16",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 8,
+            "w": 114,
+            "h": 111
+          },
+          "frame": {
+            "x": 232,
+            "y": 1,
+            "w": 114,
+            "h": 111
+          }
+        },
+        {
+          "filename": "item_icons/icon_29",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 8,
+            "w": 114,
+            "h": 111
+          },
+          "frame": {
+            "x": 348,
+            "y": 1,
+            "w": 114,
+            "h": 111
+          }
+        },
+        {
+          "filename": "item_icons/icon_13",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 10,
+            "y": 7,
+            "w": 108,
+            "h": 114
+          },
+          "frame": {
+            "x": 114,
+            "y": 346,
+            "w": 108,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_36",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 9,
+            "w": 114,
+            "h": 109
+          },
+          "frame": {
+            "x": 464,
+            "y": 1,
+            "w": 114,
+            "h": 109
+          }
+        },
+        {
+          "filename": "item_icons/icon_07",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 11,
+            "w": 114,
+            "h": 106
+          },
+          "frame": {
+            "x": 580,
+            "y": 1,
+            "w": 114,
+            "h": 106
+          }
+        },
+        {
+          "filename": "item_icons/icon_34",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 11,
+            "y": 7,
+            "w": 106,
+            "h": 114
+          },
+          "frame": {
+            "x": 117,
+            "y": 117,
+            "w": 106,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_12",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 11,
+            "w": 114,
+            "h": 105
+          },
+          "frame": {
+            "x": 696,
+            "y": 1,
+            "w": 114,
+            "h": 105
+          }
+        },
+        {
+          "filename": "item_icons/icon_27",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 12,
+            "w": 114,
+            "h": 104
+          },
+          "frame": {
+            "x": 812,
+            "y": 1,
+            "w": 114,
+            "h": 104
+          }
+        },
+        {
+          "filename": "item_icons/icon_03",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 31,
+            "y": 7,
+            "w": 66,
+            "h": 114
+          },
+          "frame": {
+            "x": 928,
+            "y": 1,
+            "w": 66,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_26",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 12,
+            "w": 114,
+            "h": 103
+          },
+          "frame": {
+            "x": 117,
+            "y": 233,
+            "w": 114,
+            "h": 103
+          }
+        },
+        {
+          "filename": "item_icons/icon_01",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 12,
+            "y": 7,
+            "w": 104,
+            "h": 114
+          },
+          "frame": {
+            "x": 225,
+            "y": 117,
+            "w": 104,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_09",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 12,
+            "y": 7,
+            "w": 104,
+            "h": 114
+          },
+          "frame": {
+            "x": 331,
+            "y": 114,
+            "w": 104,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_02",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 15,
+            "y": 7,
+            "w": 98,
+            "h": 114
+          },
+          "frame": {
+            "x": 233,
+            "y": 233,
+            "w": 98,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_05",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 13,
+            "y": 7,
+            "w": 101,
+            "h": 114
+          },
+          "frame": {
+            "x": 333,
+            "y": 230,
+            "w": 101,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_22",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 13,
+            "y": 7,
+            "w": 101,
+            "h": 114
+          },
+          "frame": {
+            "x": 333,
+            "y": 346,
+            "w": 101,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_04",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 14,
+            "y": 7,
+            "w": 100,
+            "h": 114
+          },
+          "frame": {
+            "x": 437,
+            "y": 114,
+            "w": 100,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_08",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 15,
+            "y": 7,
+            "w": 98,
+            "h": 114
+          },
+          "frame": {
+            "x": 436,
+            "y": 230,
+            "w": 98,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_06",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 16,
+            "y": 7,
+            "w": 96,
+            "h": 114
+          },
+          "frame": {
+            "x": 436,
+            "y": 346,
+            "w": 96,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_10",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 16,
+            "y": 7,
+            "w": 96,
+            "h": 114
+          },
+          "frame": {
+            "x": 534,
+            "y": 346,
+            "w": 96,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_17",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 17,
+            "y": 7,
+            "w": 93,
+            "h": 114
+          },
+          "frame": {
+            "x": 536,
+            "y": 230,
+            "w": 93,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_11",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 20,
+            "y": 7,
+            "w": 88,
+            "h": 114
+          },
+          "frame": {
+            "x": 539,
+            "y": 112,
+            "w": 88,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_19",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 18,
+            "y": 7,
+            "w": 92,
+            "h": 114
+          },
+          "frame": {
+            "x": 629,
+            "y": 109,
+            "w": 92,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_20",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 18,
+            "y": 7,
+            "w": 91,
+            "h": 114
+          },
+          "frame": {
+            "x": 723,
+            "y": 108,
+            "w": 91,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_33",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 21,
+            "y": 7,
+            "w": 85,
+            "h": 114
+          },
+          "frame": {
+            "x": 816,
+            "y": 107,
+            "w": 85,
+            "h": 114
+          }
+        },
+        {
+          "filename": "item_icons/icon_28",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 13,
+            "w": 114,
+            "h": 102
+          },
+          "frame": {
+            "x": 631,
+            "y": 225,
+            "w": 114,
+            "h": 102
+          }
+        },
+        {
+          "filename": "item_icons/icon_31",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 13,
+            "w": 114,
+            "h": 102
+          },
+          "frame": {
+            "x": 632,
+            "y": 329,
+            "w": 114,
+            "h": 102
+          }
+        },
+        {
+          "filename": "item_icons/icon_21",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 14,
+            "w": 114,
+            "h": 100
+          },
+          "frame": {
+            "x": 747,
+            "y": 224,
+            "w": 114,
+            "h": 100
+          }
+        },
+        {
+          "filename": "item_icons/icon_32",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 14,
+            "w": 114,
+            "h": 100
+          },
+          "frame": {
+            "x": 748,
+            "y": 326,
+            "w": 114,
+            "h": 100
+          }
+        },
+        {
+          "filename": "item_icons/icon_23",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 26,
+            "y": 7,
+            "w": 75,
+            "h": 114
+          },
+          "frame": {
+            "x": 903,
+            "y": 117,
+            "w": 75,
+            "h": 114
+          }
+        },
         {
           "filename": "circle",
           "rotated": false,
@@ -24,10 +738,52 @@
             "h": 64
           },
           "frame": {
-            "x": 1,
-            "y": 1,
+            "x": 224,
+            "y": 349,
             "w": 64,
             "h": 64
+          }
+        },
+        {
+          "filename": "item_icons/icon_14",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 15,
+            "w": 114,
+            "h": 97
+          },
+          "frame": {
+            "x": 864,
+            "y": 233,
+            "w": 114,
+            "h": 97
+          }
+        },
+        {
+          "filename": "item_icons/icon_24",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 7,
+            "y": 17,
+            "w": 114,
+            "h": 94
+          },
+          "frame": {
+            "x": 864,
+            "y": 332,
+            "w": 114,
+            "h": 94
           }
         },
         {
@@ -45,8 +801,8 @@
             "h": 32
           },
           "frame": {
-            "x": 1,
-            "y": 67,
+            "x": 748,
+            "y": 428,
             "w": 32,
             "h": 32
           }
@@ -57,6 +813,6 @@
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "3.0",
-    "smartupdate": "$TexturePacker:SmartUpdate:aef6b9e6c5f1d6e60eae4832f5dd63a7:6451e5157e4982f1a82377f99c874d60:cf935fe037ea9b5d3744d532996e235e$"
+    "smartupdate": "$TexturePacker:SmartUpdate:b04cf6c425182d863179f39fd03aaca3:ac11d456d1d01112c90ac8a65424b242:cf935fe037ea9b5d3744d532996e235e$"
   }
 }
