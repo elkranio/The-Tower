@@ -1,10 +1,10 @@
 const P34TOptions = {
     // HTML page title
-    title: 'Overhype Phaser 3 Framework v4T',
+    title: 'The Tower - Loot Tinder',
 
     // should the game take all available space?
     responsive: {
-        mobile: true,
+        mobile: false,
         desktop: false,
     },
 

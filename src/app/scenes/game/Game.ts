@@ -1,8 +1,8 @@
 import BaseScene from '../BaseScene';
 import LayerManager from '../../../system/LayerManager';
-import ScreenWakeLock from '../../../system/ScreenWakeLock';
+import LootTinderController from './LootTinderController';
 
-const layers = ['bg', 'player', 'ui'] as const;
+const layers = ['bg', 'cards', 'ui'] as const;
 type LayerKeys = (typeof layers)[number];
 
 export default class Game extends BaseScene<LayerKeys> {
@@ -15,6 +15,6 @@ export default class Game extends BaseScene<LayerKeys> {
     }
 
     protected start(): void {
-        console.log('Game scene started');
+        new LootTinderController(this).start();
     }
 }
