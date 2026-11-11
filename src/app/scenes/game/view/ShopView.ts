@@ -1,4 +1,5 @@
 import type GameSession from '../../../game/GameSession';
+import { getCatalogItem } from '../../../game/itemCatalog';
 import { COUNTER_COLUMNS } from '../../../game/GameSession';
 import { text } from './uiDraw';
 
@@ -26,7 +27,8 @@ export default function createShopView(
         const stock = session.counter[i];
         if (!stock) continue;
 
-        const icon = scene.add.image(x, y - 5, 'atlas', stock.item.frame).setScale(0.88);
+        const item = getCatalogItem(stock.itemId);
+        const icon = scene.add.image(x, y - 5, 'atlas', item.frame).setScale(0.88);
         items.add(icon);
 
         if (stock.quantity > 1) {

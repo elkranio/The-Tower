@@ -1,23 +1,16 @@
-import type { BagItem, Rarity } from '../../../game/itemCatalog';
+import type { CatalogItem } from '../../../game/itemCatalog';
 import config from '../lootTinderConfig';
 import { getItemValues } from '../data/itemValuation';
 import { panel, text } from './uiDraw';
 
 type Direction = 'sell' | 'keep';
 
-const rarityColors: Record<Rarity, number> = {
-    COMMON: 0x786b59,
-    UNCOMMON: 0x568c32,
-    RARE: 0x3979ad,
-    EPIC: 0x8f43ab,
-};
-
 export default class ItemCardView {
     private readonly container: Phaser.GameObjects.Container;
     private readonly receipt: Phaser.GameObjects.Container;
     private readonly scene: Phaser.Scene;
 
-    constructor(scene: Phaser.Scene, layer: Phaser.GameObjects.Layer, item: BagItem, onSwipe: (direction: Direction) => void) {
+    constructor(scene: Phaser.Scene, layer: Phaser.GameObjects.Layer, item: CatalogItem, onSwipe: (direction: Direction) => void) {
         this.scene = scene;
         const { x, y, width, height } = config.card;
         const g = scene.add.graphics();
@@ -30,19 +23,13 @@ export default class ItemCardView {
         const titleSize = item.name.length > 16 ? 34 : item.name.length > 12 ? 39 : 46;
         const name = text(scene, 0, 99, item.name.toUpperCase(), titleSize);
 
-        const rarity = item.rarity;
         const badge = scene.add.graphics();
-        badge.fillStyle(rarity ? rarityColors[rarity] : 0xc3935c).fillRoundedRect(-151, 134, 302, 54, 13);
+        badge.fillStyle(0x786b59).fillRoundedRect(-151, 134, 302, 54, 13);
         badge.lineStyle(3, 0x422932, 0.8).strokeRoundedRect(-151, 134, 302, 54, 13);
-        const label = text(scene, 0, 161, rarity ?? item.category.toUpperCase(), 29, '#fff2d4');
+        const label = text(scene, 0, 161, item.category.toUpperCase(), 29, '#fff2d4');
         label.setStroke('#3a272a', 3);
 
-        let traitText = '';
-        if (item.unidentified) traitText = 'UNIDENTIFIED';
-        else if (item.trait) traitText = item.trait.toUpperCase();
-        const trait = text(scene, 0, 218, traitText, 27, item.unidentified ? '#8d4099' : '#a14424');
-
-        this.container = scene.add.container(x, y, [g, icon, name, badge, label, trait]);
+        this.container = scene.add.container(x, y, [g, icon, name, badge, label]);
         this.container.setSize(width, height).setInteractive({ useHandCursor: true });
         scene.input.setDraggable(this.container);
         layer.add(this.container);

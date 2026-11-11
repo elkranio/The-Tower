@@ -1,6 +1,6 @@
 import type Game from './Game';
 import config from './lootTinderConfig';
-import { generateBag, type BagItem } from '../../game/itemCatalog';
+import { itemCatalog, type CatalogItem } from '../../game/itemCatalog';
 import { getItemValues } from './data/itemValuation';
 import createBackgroundView from './view/BackgroundView';
 import LootHudView from './view/LootHudView';
@@ -13,7 +13,7 @@ type Decision = 'sell' | 'keep';
 export default class LootTinderController {
     private hud!: LootHudView;
     private card: ItemCardView | null = null;
-    private bag: BagItem[] = [];
+    private bag: CatalogItem[] = [];
     private itemIndex = 0;
     private profit = -config.bag.purchasePrice;
     private busy = false;
@@ -29,7 +29,13 @@ export default class LootTinderController {
     }
 
     private newBag(): void {
-        this.bag = generateBag(config.bag.minItems, config.bag.maxItems);
+        const range = config.bag.maxItems - config.bag.minItems + 1;
+        const count = config.bag.minItems + Math.floor(Math.random() * range);
+        this.bag = [];
+        for (let i = 0; i < count; i++) {
+            const index = Math.floor(Math.random() * itemCatalog.length);
+            this.bag.push(itemCatalog[index]);
+        }
         this.itemIndex = 0;
         this.profit = -config.bag.purchasePrice;
         this.busy = false;
