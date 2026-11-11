@@ -19,7 +19,7 @@ export default function startCustomerLoop(scene: Phaser.Scene, layer: Phaser.Gam
         if (index === lastIndex) index = (index + 1) % customerFrames.length;
         lastIndex = index;
 
-        const customer = scene.add.image(80, 424, 'atlas', customerFrames[index]);
+        const customer = scene.add.image(80, 434, 'atlas', customerFrames[index]);
         customer.setOrigin(0.5, 1);
         layer.add(customer);
 
@@ -34,7 +34,7 @@ export default function startCustomerLoop(scene: Phaser.Scene, layer: Phaser.Gam
             scene.tweens.add({ targets: customer, x, duration: 1280, ease: 'Linear', onComplete });
             scene.tweens.add({
                 targets: customer,
-                y: 414,
+                y: 424,
                 duration: 160,
                 ease: 'Sine.InOut',
                 yoyo: true,
