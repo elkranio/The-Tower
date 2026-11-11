@@ -51,8 +51,15 @@ export default class Preload extends Phaser.Scene {
         // this.load.spine('frog', 'assets/spine/frog.json', 'assets/spine/frog.atlas');
     }
 
-    create() {
+    async create() {
         console.log('Preload scene loaded');
+        try {
+            const font = new FontFace('Rubik', 'url(assets/fonts/rubik.ttf)', { weight: '100 900' });
+            await font.load();
+            document.fonts.add(font);
+        } catch (error) {
+            console.warn('Rubik font failed to load:', error);
+        }
         this.scene.start('Game');
     }
 }

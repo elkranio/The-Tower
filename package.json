@@ -17,6 +17,7 @@
     "license": "ISC",
     "dependencies": {
         "is-mobile": "^5.0.0",
+        "phaser3-rex-plugins": "1.80.20",
         "phaser": "^3.88.2"
     },
     "devDependencies": {

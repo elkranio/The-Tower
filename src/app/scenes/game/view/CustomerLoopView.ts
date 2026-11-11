@@ -1,3 +1,5 @@
+import showCustomerBubble from './CustomerBubbleView';
+
 const customerFrames = [
     'clients/sellsword',
     'clients/warrior',
@@ -48,11 +50,13 @@ export default function startCustomerLoop(
 
         scene.tweens.add({ targets: shade, brightness: 1, duration: 1280, onUpdate: updateTint });
         walkTo(360, () => {
-            onArrive(() => {
-                scene.tweens.add({ targets: shade, brightness: 0.2, duration: 1280, onUpdate: updateTint });
-                walkTo(640, () => {
-                    customer.destroy();
-                    scene.time.delayedCall(500, nextCustomer);
+            showCustomerBubble(scene, () => {
+                onArrive(() => {
+                    scene.tweens.add({ targets: shade, brightness: 0.2, duration: 1280, onUpdate: updateTint });
+                    walkTo(640, () => {
+                        customer.destroy();
+                        scene.time.delayedCall(500, nextCustomer);
+                    });
                 });
             });
         });
