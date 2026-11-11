@@ -11,7 +11,7 @@ const config = {
     host: 'ftp.ha005.justhost.ru',
     port: 21,
     localRoot: path.resolve(__dirname, '../dist'),
-    remoteRoot: '/domains/overhype.com/public_html/tests/_p34t',
+    remoteRoot: '/domains/overhype.com/public_html/tests/twr',
     include: ['**/*'],
     deleteRemote: true,
     forcePasv: true,
