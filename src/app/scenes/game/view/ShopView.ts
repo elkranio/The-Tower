@@ -46,17 +46,4 @@ export default function createShopView(
     const gold = text(scene, 636, 45, session.gold.toLocaleString('en-US'), 42, '#fff4dd');
     gold.setStroke('#38212a', 6);
     ui.add(gold);
-
-    for (const [x, label] of [[183, 'Inventory'], [537, 'Suppliers']] as const) {
-        const button = scene.add.graphics();
-        button.fillStyle(0x26191d, 0.9).fillRoundedRect(x - 167, 1154, 334, 97, 20);
-        button.fillStyle(0x67585b).fillRoundedRect(x - 162, 1158, 324, 85, 17);
-        button.fillStyle(0x8c7779).fillRoundedRect(x - 155, 1163, 310, 71, 14);
-        button.lineStyle(3, 0xb6a0a0, 0.8).strokeRoundedRect(x - 155, 1163, 310, 71, 14);
-        ui.add(button);
-
-        const caption = text(scene, x, 1199, label, 38, '#fff5e8');
-        caption.setStroke('#38252b', 5);
-        ui.add(caption);
-    }
 }
