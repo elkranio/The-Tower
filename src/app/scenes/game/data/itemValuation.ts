@@ -1,8 +1,8 @@
 import config from '../lootTinderConfig';
 
-export function getItemValues(baseValue: number): { reject: number; take: number } {
+export function getItemValues(baseValue: number): { wholesale: number; retail: number } {
     return {
-        reject: Math.round(baseValue * config.bag.rejectMultiplier),
-        take: Math.round(baseValue * config.bag.takeMultiplier),
+        wholesale: Math.round(baseValue * config.bag.wholesaleMultiplier),
+        retail: Math.round(baseValue * config.bag.retailMultiplier),
     };
 }

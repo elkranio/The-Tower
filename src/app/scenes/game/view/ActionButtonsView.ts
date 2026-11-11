@@ -1,9 +1,9 @@
 import { text } from './uiDraw';
 
 export default class ActionButtonsView {
-    constructor(scene: Phaser.Scene, layer: Phaser.GameObjects.Layer, onReject: () => void, onTake: () => void) {
-        this.addButton(scene, layer, 192, 1127, 'REJECT', 0xc8452c, 0x9d281b, onReject);
-        this.addButton(scene, layer, 528, 1127, 'TAKE', 0x679b27, 0x3d6819, onTake);
+    constructor(scene: Phaser.Scene, layer: Phaser.GameObjects.Layer, onSell: () => void, onKeep: () => void) {
+        this.addButton(scene, layer, 192, 1127, 'SELL', 0xb66d32, 0x89431f, onSell);
+        this.addButton(scene, layer, 528, 1127, 'KEEP', 0x679b27, 0x3d6819, onKeep);
     }
 
     private addButton(

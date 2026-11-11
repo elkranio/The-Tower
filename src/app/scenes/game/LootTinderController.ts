@@ -8,7 +8,7 @@ import ActionButtonsView from './view/ActionButtonsView';
 import ItemCardView from './view/ItemCardView';
 import { text } from './view/uiDraw';
 
-type Decision = 'reject' | 'take';
+type Decision = 'sell' | 'keep';
 
 export default class LootTinderController {
     private hud!: LootHudView;
@@ -24,7 +24,7 @@ export default class LootTinderController {
         const { scene } = this;
         createBackgroundView(scene, scene.layers.get('bg'));
         this.hud = new LootHudView(scene, scene.layers.get('ui'), config.dungeonName);
-        new ActionButtonsView(scene, scene.layers.get('ui'), () => this.choose('reject'), () => this.choose('take'));
+        new ActionButtonsView(scene, scene.layers.get('ui'), () => this.choose('sell'), () => this.choose('keep'));
         this.newBag();
     }
 
@@ -51,7 +51,8 @@ export default class LootTinderController {
         this.busy = true;
 
         const item = this.bag[this.itemIndex];
-        this.profit += getItemValues(item.baseValue)[decision];
+        const values = getItemValues(item.baseValue);
+        this.profit += decision === 'sell' ? values.wholesale : values.retail;
         this.updateReport();
 
         this.card.exit(decision, () => {
