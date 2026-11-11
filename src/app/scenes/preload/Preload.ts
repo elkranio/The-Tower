@@ -33,7 +33,11 @@ export default class Preload extends Phaser.Scene {
         this.load.setPath('');
 
         // load audiosprite
-        this.load.audioSprite('sfx', 'assets/sfx/sfx.json', ['assets/sfx/sfx.ogg', 'assets/sfx/sfx.mp3']);
+        const sfxVersion = Date.now();
+        this.load.audioSprite('sfx', `assets/sfx/sfx.json?v=${sfxVersion}`, [
+            `assets/sfx/sfx.ogg?v=${sfxVersion}`,
+            `assets/sfx/sfx.mp3?v=${sfxVersion}`,
+        ]);
 
         // load music files individually
         this.load.audio('ost', 'assets/music/demo.ogg');

@@ -64,7 +64,9 @@ export default function startShopSales(
                 const previousGold = session.gold;
                 session.completeSale(total);
                 shop.showPayment(previousGold, total);
-                scene.sound.playAudioSprite('sfx', 'click', { volume: 0.35 });
+                if (scene.cache.audio.exists('sfx')) {
+                    scene.sound.playAudioSprite('sfx', 'click', { volume: 0.35 });
+                }
 
                 scene.tweens.add({
                     targets: basket,
