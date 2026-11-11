@@ -15,6 +15,23 @@ export default class GameSession {
     inventory: StockItem[] = [];
     counter: (StockItem | null)[] = Array(COUNTER_COLUMNS * COUNTER_ROWS).fill(null);
 
+    // Remove one available unit from a display slot. Money changes only at checkout.
+    takeCounterItem(slotIndex: number): { itemId: string; price: number } | null {
+        const stock = this.counter[slotIndex];
+        if (!stock || stock.quantity < 1) return null;
+
+        const price = Math.round(getCatalogItem(stock.itemId).baseValue * 1.2);
+        stock.quantity -= 1;
+        if (stock.quantity === 0) this.counter[slotIndex] = null;
+
+        return { itemId: stock.itemId, price };
+    }
+
+    completeSale(total: number): void {
+        if (!Number.isInteger(total) || total <= 0) throw new Error(`Invalid sale total: ${total}`);
+        this.gold += total;
+    }
+
     constructor() {
         // Temporary starting stock until inventory management is added.
         let nextId = 1;

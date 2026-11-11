@@ -11,7 +11,11 @@ const customerFrames = [
     'clients/elf_ranger',
 ];
 
-export default function startCustomerLoop(scene: Phaser.Scene, layer: Phaser.GameObjects.Container): void {
+export default function startCustomerLoop(
+    scene: Phaser.Scene,
+    layer: Phaser.GameObjects.Container,
+    onArrive: (leave: () => void) => void,
+): void {
     let lastIndex = -1;
 
     function nextCustomer(): void {
@@ -44,7 +48,7 @@ export default function startCustomerLoop(scene: Phaser.Scene, layer: Phaser.Gam
 
         scene.tweens.add({ targets: shade, brightness: 1, duration: 1280, onUpdate: updateTint });
         walkTo(360, () => {
-            scene.time.delayedCall(1800, () => {
+            onArrive(() => {
                 scene.tweens.add({ targets: shade, brightness: 0.2, duration: 1280, onUpdate: updateTint });
                 walkTo(640, () => {
                     customer.destroy();
