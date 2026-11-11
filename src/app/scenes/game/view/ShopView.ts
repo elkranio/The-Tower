@@ -3,6 +3,11 @@ import { getCatalogItem } from '../../../game/itemCatalog';
 import { COUNTER_COLUMNS } from '../../../game/GameSession';
 import { text } from './uiDraw';
 
+function formatGold(value: number): string {
+    if (value < 10000) return String(value);
+    return value.toLocaleString('en-US').replace(/,/g, ' ');
+}
+
 export default function createShopView(
     scene: Phaser.Scene,
     background: Phaser.GameObjects.Layer,
@@ -28,7 +33,7 @@ export default function createShopView(
         if (!stock) continue;
 
         const item = getCatalogItem(stock.itemId);
-        const icon = scene.add.image(x, y - 5, 'atlas', item.frame).setScale(0.88);
+        const icon = scene.add.image(x, y - 2, 'atlas', item.frame).setScale(0.88);
         items.add(icon);
 
         if (stock.quantity > 1) {
@@ -45,7 +50,7 @@ export default function createShopView(
     coin.lineStyle(3, 0xffec86, 0.9).strokeCircle(554, 43, 13);
     ui.add(coin);
 
-    const gold = text(scene, 636, 45, session.gold.toLocaleString('en-US'), 42, '#fff4dd');
+    const gold = text(scene, 636, 45, formatGold(session.gold), 42, '#fff4dd');
     gold.setStroke('#38212a', 6);
     ui.add(gold);
 }

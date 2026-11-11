@@ -11,7 +11,7 @@ export type StockItem = {
 };
 
 export default class GameSession {
-    gold = 1240;
+    gold = 0;
     inventory: StockItem[] = [];
     counter: (StockItem | null)[] = Array(COUNTER_COLUMNS * COUNTER_ROWS).fill(null);
 
@@ -35,6 +35,16 @@ export default class GameSession {
         this.counter[2] = stock('antidote', 10);
         this.counter[3] = stock('iron_rations', 10);
         this.counter[4] = stock('scroll_of_return', 10);
+
+        // Temporary display stock: ten equipment types, with five extra instances.
+        const equipment = [
+            'short_sword', 'battle_axe', 'longbow', 'wizard_staff', 'spear',
+            'iron_breastplate', 'leather_boots', 'knight_shield', 'silver_ring', 'ruby_necklace',
+            'short_sword', 'wizard_staff', 'iron_breastplate', 'leather_boots', 'ruby_necklace',
+        ];
+        for (let i = 0; i < equipment.length; i++) {
+            this.counter[5 + i] = stock(equipment[i]);
+        }
 
         this.inventory = [
             stock('short_sword'),
