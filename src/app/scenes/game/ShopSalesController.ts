@@ -7,7 +7,7 @@ export default function startShopSales(
     session: GameSession,
     shop: ReturnType<typeof createShopView>,
 ): void {
-    startCustomerLoop(scene, shop.customerLayer, leave => {
+    startCustomerLoop(scene, shop.customerLayer, (leave) => {
         const targetCount = 1 + Math.floor(Math.random() * 4);
         const basket: Phaser.GameObjects.Image[] = [];
         let total = 0;
@@ -40,12 +40,12 @@ export default function startShopSales(
 
             // Every new item recenters the entire row while it is flying in.
             for (let i = 0; i < basket.length; i++) {
-                const x = 360 + (i - (basket.length - 1) / 2) * 88;
+                const x = 360 + (i - (basket.length - 1) / 2) * 80;
                 scene.tweens.add({
                     targets: basket[i],
                     x,
-                    y: 506,
-                    scale: 0.75,
+                    y: 455,
+                    scale: 0.6,
                     duration: 260,
                     ease: 'Cubic.Out',
                 });
@@ -72,7 +72,7 @@ export default function startShopSales(
                     scale: 0.5,
                     duration: 180,
                     ease: 'Cubic.In',
-                    onComplete: () => basket.forEach(item => item.destroy()),
+                    onComplete: () => basket.forEach((item) => item.destroy()),
                 });
                 scene.time.delayedCall(550, leave);
             });
