@@ -17,7 +17,7 @@ export type BagItem = CatalogItem & {
 };
 
 // Frame keys match the packed atlas. Names and values are temporary prototype data.
-const entries: ReadonlyArray<[string, string, Category, number, readonly string[]?]> = [
+const entries: ReadonlyArray<[string, string, Category, number, (readonly string[])?]> = [
     ['Pickaxe', '35', 'weapon', 38, ['Sturdy', 'Deep Miner']],
     ['Herb Bundle', '25', 'material', 18],
     ['Ruby Ring', '16', 'accessory', 92, ['Lucky', 'Fire Touched']],

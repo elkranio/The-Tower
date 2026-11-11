@@ -1,4 +1,4 @@
-import type { BagItem, Rarity } from '../data/itemCatalog';
+import type { BagItem, Rarity } from '../../../game/itemCatalog';
 import config from '../lootTinderConfig';
 import { getItemValues } from '../data/itemValuation';
 import { panel, text } from './uiDraw';

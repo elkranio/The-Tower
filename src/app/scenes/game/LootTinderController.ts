@@ -1,6 +1,6 @@
 import type Game from './Game';
 import config from './lootTinderConfig';
-import { generateBag, type BagItem } from './data/itemCatalog';
+import { generateBag, type BagItem } from '../../game/itemCatalog';
 import { getItemValues } from './data/itemValuation';
 import createBackgroundView from './view/BackgroundView';
 import LootHudView from './view/LootHudView';

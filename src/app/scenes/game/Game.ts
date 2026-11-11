@@ -1,11 +1,14 @@
 import BaseScene from '../BaseScene';
 import LayerManager from '../../../system/LayerManager';
-import LootTinderController from './LootTinderController';
+import GameSession from '../../game/GameSession';
+import createShopView from './view/ShopView';
 
 const layers = ['bg', 'cards', 'ui'] as const;
 type LayerKeys = (typeof layers)[number];
 
 export default class Game extends BaseScene<LayerKeys> {
+    private readonly session = new GameSession();
+
     constructor() {
         super('Game');
     }
@@ -15,6 +18,12 @@ export default class Game extends BaseScene<LayerKeys> {
     }
 
     protected start(): void {
-        new LootTinderController(this).start();
+        createShopView(
+            this,
+            this.layers.get('bg'),
+            this.layers.get('cards'),
+            this.layers.get('ui'),
+            this.session,
+        );
     }
 }
