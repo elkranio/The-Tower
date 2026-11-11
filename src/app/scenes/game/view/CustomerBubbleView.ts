@@ -1,7 +1,19 @@
 import BBCodeText from 'phaser3-rex-plugins/plugins/bbcodetext.js';
 
-const speech = 'На [color=#ac4e2f]кладбище[/color] опять нежить. Стража собирает добровольцев. Говорят, без зелий туда лучше не соваться.';
+const speech =
+    'На [color=#ac4e2f]кладбище[/color] опять нежить. Стража собирает добровольцев. Говорят, без зелий туда лучше не соваться.';
 const words = speech.split(' ');
+
+function fadeWord(word: string, alpha: number): string {
+    const colored = word.match(/^\[color=#([0-9a-f]{6})\](.*)\[\/color\]$/i);
+    if (!colored) return `[color=rgba(61,37,32,${alpha})]${word}[/color]`;
+
+    const color = parseInt(colored[1], 16);
+    const red = (color >> 16) & 255;
+    const green = (color >> 8) & 255;
+    const blue = color & 255;
+    return `[color=rgba(${red},${green},${blue},${alpha})]${colored[2]}[/color]`;
+}
 
 // The bubble grows upwards, keeping its tail pointed at the visitor.
 export default function showCustomerBubble(scene: Phaser.Scene, onComplete: () => void): void {
@@ -20,9 +32,9 @@ export default function showCustomerBubble(scene: Phaser.Scene, onComplete: () =
 
     let visibleWords = 0;
 
-    function revealWord(): void {
-        visibleWords += 1;
-        label.setText(words.slice(0, visibleWords).join(' '));
+    function revealWord(step = 0): void {
+        const current = fadeWord(words[visibleWords], step / 3);
+        label.setText([...words.slice(0, visibleWords), current].join(' '));
 
         const width = Phaser.Math.Clamp(label.width + 48, 170, 688);
         const height = Math.max(64, label.height + 32);
@@ -38,10 +50,16 @@ export default function showCustomerBubble(scene: Phaser.Scene, onComplete: () =
         bubble.fillStyle(0xfff1d1).fillTriangle(347, bottom - 4, 373, bottom - 4, 360, bottom + 14);
         label.setPosition(360, top + 16);
 
+        if (step < 3) {
+            scene.time.delayedCall(25, () => revealWord(step + 1));
+            return;
+        }
+
+        visibleWords += 1;
         if (visibleWords < words.length) {
-            scene.time.delayedCall(90, revealWord);
+            scene.time.delayedCall(100, () => revealWord());
         } else {
-            scene.time.delayedCall(650, () => {
+            scene.time.delayedCall(2000, () => {
                 bubble.destroy();
                 label.destroy();
                 onComplete();
