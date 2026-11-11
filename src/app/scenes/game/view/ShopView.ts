@@ -44,13 +44,14 @@ export default function createShopView(
     }
 
     const coin = scene.add.graphics();
-    coin.fillStyle(0x2a1b20).fillCircle(555, 45, 26);
-    coin.fillStyle(0xc87a16).fillCircle(555, 45, 22);
-    coin.fillStyle(0xffd83a).fillCircle(554, 43, 18);
-    coin.lineStyle(3, 0xffec86, 0.9).strokeCircle(554, 43, 13);
+    coin.fillStyle(0x2a1b20).fillCircle(530, 40, 26);
+    coin.fillStyle(0xc87a16).fillCircle(530, 40, 22);
+    coin.fillStyle(0xffd83a).fillCircle(529, 38, 18);
+    coin.lineStyle(3, 0xffec86, 0.9).strokeCircle(529, 38, 13);
     ui.add(coin);
 
-    const gold = text(scene, 636, 45, formatGold(session.gold), 42, '#fff4dd');
+    const gold = text(scene, 566, 40, formatGold(session.gold), 42, '#fff4dd');
+    gold.setOrigin(0, 0.5);
     gold.setStroke('#38212a', 6);
     ui.add(gold);
 }
