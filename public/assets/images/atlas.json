@@ -1,11 +1,11 @@
 {
   "textures": [
     {
-      "image": "atlas-0.png?v=1794427513364",
+      "image": "atlas-0.png?v=1794431333279",
       "format": "RGBA8888",
       "size": {
-        "w": 842,
-        "h": 1734
+        "w": 1061,
+        "h": 1976
       },
       "scale": 1,
       "frames": [
@@ -52,6 +52,237 @@
           }
         },
         {
+          "filename": "clients/dwarf",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 4,
+            "y": 11,
+            "w": 247,
+            "h": 245
+          },
+          "frame": {
+            "x": 723,
+            "y": 1,
+            "w": 247,
+            "h": 245
+          }
+        },
+        {
+          "filename": "clients/sellsword",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 12,
+            "y": 11,
+            "w": 232,
+            "h": 245
+          },
+          "frame": {
+            "x": 723,
+            "y": 248,
+            "w": 232,
+            "h": 245
+          }
+        },
+        {
+          "filename": "clients/wizard",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 16,
+            "y": 11,
+            "w": 224,
+            "h": 245
+          },
+          "frame": {
+            "x": 723,
+            "y": 495,
+            "w": 224,
+            "h": 245
+          }
+        },
+        {
+          "filename": "clients/elf_ranger",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 18,
+            "y": 11,
+            "w": 220,
+            "h": 245
+          },
+          "frame": {
+            "x": 723,
+            "y": 742,
+            "w": 220,
+            "h": 245
+          }
+        },
+        {
+          "filename": "clients/traveler",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 18,
+            "y": 11,
+            "w": 220,
+            "h": 245
+          },
+          "frame": {
+            "x": 723,
+            "y": 989,
+            "w": 220,
+            "h": 245
+          }
+        },
+        {
+          "filename": "clients/orc",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 19,
+            "y": 11,
+            "w": 218,
+            "h": 245
+          },
+          "frame": {
+            "x": 623,
+            "y": 1283,
+            "w": 218,
+            "h": 245
+          }
+        },
+        {
+          "filename": "clients/warrior",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 19,
+            "y": 11,
+            "w": 217,
+            "h": 245
+          },
+          "frame": {
+            "x": 843,
+            "y": 1236,
+            "w": 217,
+            "h": 245
+          }
+        },
+        {
+          "filename": "clients/rogue",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 19,
+            "y": 11,
+            "w": 218,
+            "h": 245
+          },
+          "frame": {
+            "x": 623,
+            "y": 1530,
+            "w": 218,
+            "h": 245
+          }
+        },
+        {
+          "filename": "clients/scholar",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 22,
+            "y": 11,
+            "w": 212,
+            "h": 245
+          },
+          "frame": {
+            "x": 843,
+            "y": 1483,
+            "w": 212,
+            "h": 245
+          }
+        },
+        {
+          "filename": "clients/cleric",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 256,
+            "h": 256
+          },
+          "spriteSourceSize": {
+            "x": 24,
+            "y": 11,
+            "w": 208,
+            "h": 245
+          },
+          "frame": {
+            "x": 843,
+            "y": 1730,
+            "w": 208,
+            "h": 245
+          }
+        },
+        {
+          "filename": "shop/slot",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 128
+          },
+          "frame": {
+            "x": 1,
+            "y": 1735,
+            "w": 128,
+            "h": 128
+          }
+        },
+        {
           "filename": "items/iron_breastplate",
           "rotated": false,
           "trimmed": true,
@@ -66,52 +297,10 @@
             "h": 117
           },
           "frame": {
-            "x": 723,
-            "y": 1,
+            "x": 131,
+            "y": 1735,
             "w": 118,
             "h": 117
-          }
-        },
-        {
-          "filename": "items/silver_ring",
-          "rotated": false,
-          "trimmed": true,
-          "sourceSize": {
-            "w": 128,
-            "h": 128
-          },
-          "spriteSourceSize": {
-            "x": 5,
-            "y": 9,
-            "w": 118,
-            "h": 109
-          },
-          "frame": {
-            "x": 723,
-            "y": 120,
-            "w": 118,
-            "h": 109
-          }
-        },
-        {
-          "filename": "items/iron_rations",
-          "rotated": false,
-          "trimmed": true,
-          "sourceSize": {
-            "w": 128,
-            "h": 128
-          },
-          "spriteSourceSize": {
-            "x": 5,
-            "y": 11,
-            "w": 118,
-            "h": 105
-          },
-          "frame": {
-            "x": 723,
-            "y": 231,
-            "w": 118,
-            "h": 105
           }
         },
         {
@@ -129,8 +318,8 @@
             "h": 118
           },
           "frame": {
-            "x": 723,
-            "y": 338,
+            "x": 251,
+            "y": 1735,
             "w": 116,
             "h": 118
           }
@@ -150,8 +339,8 @@
             "h": 118
           },
           "frame": {
-            "x": 723,
-            "y": 458,
+            "x": 369,
+            "y": 1735,
             "w": 114,
             "h": 118
           }
@@ -171,10 +360,52 @@
             "h": 118
           },
           "frame": {
-            "x": 723,
-            "y": 578,
+            "x": 485,
+            "y": 1735,
             "w": 113,
             "h": 118
+          }
+        },
+        {
+          "filename": "items/silver_ring",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 5,
+            "y": 9,
+            "w": 118,
+            "h": 109
+          },
+          "frame": {
+            "x": 1,
+            "y": 1865,
+            "w": 118,
+            "h": 109
+          }
+        },
+        {
+          "filename": "items/iron_rations",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 5,
+            "y": 11,
+            "w": 118,
+            "h": 105
+          },
+          "frame": {
+            "x": 600,
+            "y": 1777,
+            "w": 118,
+            "h": 105
           }
         },
         {
@@ -192,93 +423,9 @@
             "h": 118
           },
           "frame": {
-            "x": 723,
-            "y": 698,
+            "x": 720,
+            "y": 1777,
             "w": 113,
-            "h": 118
-          }
-        },
-        {
-          "filename": "items/short_sword",
-          "rotated": false,
-          "trimmed": true,
-          "sourceSize": {
-            "w": 128,
-            "h": 128
-          },
-          "spriteSourceSize": {
-            "x": 8,
-            "y": 5,
-            "w": 112,
-            "h": 118
-          },
-          "frame": {
-            "x": 723,
-            "y": 818,
-            "w": 112,
-            "h": 118
-          }
-        },
-        {
-          "filename": "items/antidote",
-          "rotated": false,
-          "trimmed": true,
-          "sourceSize": {
-            "w": 128,
-            "h": 128
-          },
-          "spriteSourceSize": {
-            "x": 9,
-            "y": 5,
-            "w": 110,
-            "h": 118
-          },
-          "frame": {
-            "x": 723,
-            "y": 938,
-            "w": 110,
-            "h": 118
-          }
-        },
-        {
-          "filename": "items/wizard_staff",
-          "rotated": false,
-          "trimmed": true,
-          "sourceSize": {
-            "w": 128,
-            "h": 128
-          },
-          "spriteSourceSize": {
-            "x": 10,
-            "y": 5,
-            "w": 108,
-            "h": 118
-          },
-          "frame": {
-            "x": 723,
-            "y": 1058,
-            "w": 108,
-            "h": 118
-          }
-        },
-        {
-          "filename": "items/ruby_necklace",
-          "rotated": false,
-          "trimmed": true,
-          "sourceSize": {
-            "w": 128,
-            "h": 128
-          },
-          "spriteSourceSize": {
-            "x": 12,
-            "y": 5,
-            "w": 104,
-            "h": 118
-          },
-          "frame": {
-            "x": 723,
-            "y": 1178,
-            "w": 104,
             "h": 118
           }
         },
@@ -297,8 +444,8 @@
             "h": 118
           },
           "frame": {
-            "x": 623,
-            "y": 1283,
+            "x": 957,
+            "y": 248,
             "w": 98,
             "h": 118
           }
@@ -318,9 +465,114 @@
             "h": 118
           },
           "frame": {
-            "x": 723,
-            "y": 1298,
+            "x": 957,
+            "y": 368,
             "w": 97,
+            "h": 118
+          }
+        },
+        {
+          "filename": "circle",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": {
+            "w": 64,
+            "h": 64
+          },
+          "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "frame": {
+            "x": 972,
+            "y": 1,
+            "w": 64,
+            "h": 64
+          }
+        },
+        {
+          "filename": "items/antidote",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 9,
+            "y": 5,
+            "w": 110,
+            "h": 118
+          },
+          "frame": {
+            "x": 949,
+            "y": 495,
+            "w": 110,
+            "h": 118
+          }
+        },
+        {
+          "filename": "items/wizard_staff",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 10,
+            "y": 5,
+            "w": 108,
+            "h": 118
+          },
+          "frame": {
+            "x": 949,
+            "y": 615,
+            "w": 108,
+            "h": 118
+          }
+        },
+        {
+          "filename": "items/short_sword",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 8,
+            "y": 5,
+            "w": 112,
+            "h": 118
+          },
+          "frame": {
+            "x": 131,
+            "y": 1854,
+            "w": 112,
+            "h": 118
+          }
+        },
+        {
+          "filename": "items/ruby_necklace",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 128,
+            "h": 128
+          },
+          "spriteSourceSize": {
+            "x": 12,
+            "y": 5,
+            "w": 104,
+            "h": 118
+          },
+          "frame": {
+            "x": 245,
+            "y": 1855,
+            "w": 104,
             "h": 118
           }
         },
@@ -339,8 +591,8 @@
             "h": 118
           },
           "frame": {
-            "x": 623,
-            "y": 1403,
+            "x": 351,
+            "y": 1855,
             "w": 96,
             "h": 118
           }
@@ -360,52 +612,10 @@
             "h": 118
           },
           "frame": {
-            "x": 721,
-            "y": 1418,
+            "x": 449,
+            "y": 1855,
             "w": 95,
             "h": 118
-          }
-        },
-        {
-          "filename": "circle",
-          "rotated": false,
-          "trimmed": false,
-          "sourceSize": {
-            "w": 64,
-            "h": 64
-          },
-          "spriteSourceSize": {
-            "x": 0,
-            "y": 0,
-            "w": 64,
-            "h": 64
-          },
-          "frame": {
-            "x": 623,
-            "y": 1523,
-            "w": 64,
-            "h": 64
-          }
-        },
-        {
-          "filename": "shop/slot",
-          "rotated": false,
-          "trimmed": false,
-          "sourceSize": {
-            "w": 128,
-            "h": 128
-          },
-          "spriteSourceSize": {
-            "x": 0,
-            "y": 0,
-            "w": 128,
-            "h": 128
-          },
-          "frame": {
-            "x": 623,
-            "y": 1589,
-            "w": 128,
-            "h": 128
           }
         },
         {
@@ -423,8 +633,8 @@
             "h": 32
           },
           "frame": {
-            "x": 689,
-            "y": 1538,
+            "x": 723,
+            "y": 1236,
             "w": 32,
             "h": 32
           }
@@ -435,6 +645,6 @@
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "3.0",
-    "smartupdate": "$TexturePacker:SmartUpdate:a24f9ddf2354c0135c52952cd0438da2:0d242deaeee502149ab9b60de2d7c37c:cf935fe037ea9b5d3744d532996e235e$"
+    "smartupdate": "$TexturePacker:SmartUpdate:27583b1dee0fa2a9f51fbaff8ea61dcb:5a2c433f8bb3e908eebb8ec0135db471:cf935fe037ea9b5d3744d532996e235e$"
   }
 }

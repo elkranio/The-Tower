@@ -14,9 +14,11 @@ export default function createShopView(
     items: Phaser.GameObjects.Layer,
     ui: Phaser.GameObjects.Layer,
     session: GameSession,
-): void {
-    // Town is behind the transparent shop window.
+): Phaser.GameObjects.Container {
+    // Customers render between the town and the shop window.
     background.add(scene.add.image(360, 275, 'atlas', 'shop/town'));
+    const customerLayer = scene.add.container(0, 0);
+    background.add(customerLayer);
     background.add(scene.add.image(360, 640, 'atlas', 'shop/store'));
 
     for (let i = 0; i < session.counter.length; i++) {
@@ -54,4 +56,6 @@ export default function createShopView(
     gold.setOrigin(0, 0.5);
     gold.setStroke('#38212a', 6);
     ui.add(gold);
+
+    return customerLayer;
 }
